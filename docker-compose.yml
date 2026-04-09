@@ -1,0 +1,13 @@
+services:
+  clewdr:
+    image: ghcr.io/yantianqi1/clewdr:master
+    container_name: clewdr
+    pull_policy: always
+    ports:
+      - "8484:8484"
+    volumes:
+      - ./clewdr-data:/etc/clewdr
+    environment:
+      - CLEWDR_IP=0.0.0.0
+      - CLEWDR_PORT=8484
+    restart: unless-stopped
